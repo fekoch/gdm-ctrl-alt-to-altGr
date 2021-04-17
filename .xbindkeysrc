@@ -1,0 +1,35 @@
+#{
+# m:0xc + c:16
+#"xdotool type '{'"
+"sleep 0.1; xdotool key --clearmodifiers braceleft"
+    Control+Alt + 7
+
+#[
+# m:0xc + c:17
+"sleep 0.1; xdotool key --clearmodifiers bracketleft"
+    Control+Alt + 8
+
+#]
+# m:0xc + c:18
+"sleep 0.1; xdotool key --clearmodifiers bracketright"
+    Control+Alt + 9
+
+#}
+# m:0xc + c:19
+"sleep 0.1; xdotool key --clearmodifiers braceright"
+    Control+Alt + 0
+
+#\
+# m:0xc + c:20
+"sleep 0.1; xdotool key --clearmodifiers backslash"
+    Control+Alt + ssharp
+
+#~
+# m:0xc + c:35
+"sleep 0.1; xdotool key --clearmodifiers asciitilde"
+    Control+Alt + plus
+
+#µ
+# m:0xc + c:58
+"sleep 0.1; xdotool key --clearmodifiers mu"
+    Control+Alt + m
