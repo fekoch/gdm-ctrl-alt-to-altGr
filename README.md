@@ -22,6 +22,10 @@ Set the *Hotkey* to `0` and check the modifiers *Alt* and *Ctrl*.
 
 Just do this for all the scripts and set AutoKey to start at login. 
 
+### Issues
+I have noticed that this setup crashes Jetbrains IDEs when typing those characters in the editor.
+To fix that, you have to disable all Keybinds that normally use <Kbd>Ctrl+Alt</Kbd>. (To do this easily,
+stop AutoKey and then use the "Key-Search"-Functionality in the Keymap Settings to find all conflicts)
 
 ## XBindKeys Hack
 So here is my barely working hack-solution (mostly so that I don't forget it again...)
