@@ -1,11 +1,72 @@
 # gdm-ctrl-alt-to-altGr
 > a very simple hack to type '{', '[', ']', '}', '\'. '~'. and 'µ' with ctrl+alt instead of altGr
 
-**NOTE:** I recently found better way than the `xbindkeys`-hack. Using *autokey*, I get a way smoother experience. Do yourself this favour and use it too.
+**NOTE:** Using AutoKey & XBinKeys did not work on my newest Gnome desktop using Wayland. But `xremap` works.
 
 I programm with a german keymap (qwertz) and I havent found an easy way to use the combination <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>7</kbd> instead of <kbd>altGr</kbd>+<kbd>7</kbd> to type <kbd>{</kbd>. People told me to just use the altGr -Combo, but this is unusable for everyone who types with all ten fingers...
 
-## Autokey Hack
+## xremap
+### Requirements
+ - Rust / Cargo
+ - [xremap](https://github.com/k0kubun/xremap)
+
+### Installation (on Fedora 39)
+
+#### xremap:
+
+Install xremap using cargo: 
+
+```bash
+cargo install xremap --features 
+``
+
+Setup sudo-less usage:
+
+```bash
+# check if uinput is installed
+lsmod | grep uinput
+
+# add access permissions for uinput / evdev
+sudo gpasswd -a $USER input
+echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+```
+
+Install [gnome extension](https://extensions.gnome.org/extension/5060/xremap).
+
+Reboot.
+
+#### Add configuration file
+
+Add the configuration yml `$HOME/.config/xremap.yml`:
+
+```yml
+keymap:
+  - name: Global
+    remap:
+      C-M-7: Alt_R-7
+      C-M-8: Alt_R-8
+      C-M-9: Alt_R-9
+      C-M-0: Alt_R-0
+      C-M-MINUS: Alt_R-MINUS
+      C-M-RIGHTBRACE: Alt_R-RIGHTBRACE
+      C-M-M: Alt_R-M
+```
+
+#### Autostart
+
+Add an desktop entry file to `$HOME/.config/autostart/xremap.desktop`:
+
+```desktop
+[Desktop Entry]
+Name=xremap
+Type=Application
+TryExec=<path to xremap>
+Exec=<path to xremap> <path to .yml-config>
+```
+
+
+
+## Autokey
 ### Requirements
  - **autokey-common**
  - **autokey-gtk**
@@ -27,7 +88,7 @@ I have noticed that this setup crashes Jetbrains IDEs when typing those characte
 To fix that, you have to disable all Keybinds that normally use <Kbd>Ctrl+Alt+?</Kbd>. (To do this easily,
 stop AutoKey and then use the "Key-Search"-Functionality in the Keymap Settings to find all conflicts)
 
-## XBindKeys Hack
+## XBindKeys
 So here is my barely working hack-solution (mostly so that I don't forget it again...)
 
 ### Requirements

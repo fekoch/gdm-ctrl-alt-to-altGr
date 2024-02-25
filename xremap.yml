@@ -1,0 +1,10 @@
+keymap:
+  - name: Global
+    remap:
+      C-M-7: Alt_R-7
+      C-M-8: Alt_R-8
+      C-M-9: Alt_R-9
+      C-M-0: Alt_R-0
+      C-M-MINUS: Alt_R-MINUS
+      C-M-RIGHTBRACE: Alt_R-RIGHTBRACE
+      C-M-M: Alt_R-M
