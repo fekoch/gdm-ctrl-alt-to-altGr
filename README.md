@@ -17,7 +17,7 @@ I programm with a german keymap (qwertz) and I havent found an easy way to use t
 Install xremap using cargo: 
 
 ```bash
-cargo install xremap --features 
+cargo install xremap --features gnome
 ```
 
 Setup sudo-less usage:
