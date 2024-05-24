@@ -18,14 +18,15 @@ Install xremap using cargo:
 
 ```bash
 cargo install xremap --features 
-``
+```
 
 Setup sudo-less usage:
 
 ```bash
 # check if uinput is installed
 lsmod | grep uinput
-
+```
+```bash
 # add access permissions for uinput / evdev
 sudo gpasswd -a $USER input
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
